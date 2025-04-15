@@ -1,35 +1,44 @@
 import "./globals.css";
+
+import { Inter } from "next/font/google";
+
 import NavigationBar from "@/components/navigation-bar/NavigationBar";
 import { Metadata } from "next";
 import { PropsWithChildren } from "react";
+import Container from "@/components/container/Container";
 
-export const metadata: Metadata ={
-  title: 'Cobalt | A Metal with Unique Properties',
-  description: 'Cobalt is a versatile metal used in a variety of industries, known for its strength, corrosion resistance, and vibrant blue hue.',
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Cobalt — Everything About The Essential Metal",
+  description:
+    "Discover the power, history, and future of cobalt. Learn why cobalt is critical for batteries, renewable energy, and modern technology.",
   openGraph: {
-    title: 'Cobalt: A Unique Metal with Diverse Uses',
-    description: 'Discover the characteristics, applications, and importance of cobalt, a metal used in everything from batteries to aerospace.',
-    images: [{
-      url: 'https://cobalt-jade.vercel.app/og-card.png',  // Ensure this path is correct and accessible
-      width: 1200,  // Consider using a larger resolution for better display on social media
-      height: 630,  // Optimal for Open Graph images (aspect ratio 1.91:1)
-      alt: 'A visual representation of cobalt metal'
-    }]
-  }
+    title: "Cobalt — The Essential Metal Powering The Future",
+    description:
+      "Explore the fascinating world of cobalt. From its role in clean energy to cutting-edge technology, Cobalt is your guide to this powerful metal.",
+    images: {
+      url: "https://cobalt-plum.vercel.app/og-card.png",
+      width: 1200,
+      height: 628,
+    },
+  },
 };
-
 
 const RootLayout = (props: PropsWithChildren) => {
   return (
     <html>
-      <body>
+      <body className={inter.className}>
         <div className="flex flex-col items-stretch">
-           <NavigationBar /> 
-          {props.children}
+          <NavigationBar />
+          <div className="border-b-[1px] border-b-[#EAEAEA]" />
+          <Container className="py-4">{props.children}</Container>
         </div>
-        </body>
+      </body>
     </html>
-  )
-}
+  );
+};
 
 export default RootLayout;

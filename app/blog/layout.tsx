@@ -1,21 +1,24 @@
-import { PropsWithChildren } from "react";
 import Link from "next/link";
+import { PropsWithChildren } from "react";
 import BlogLink from "@/components/Blog-Link";
+import { blogs } from "./blog";
+
 export default (props: PropsWithChildren) => {
   return (
-    <div className="flex flex-row h-screen">
-      <div className="w-48">
-        <ul>
-          {[1, 2, 3, 4].map((slug) => {
+    <div className="h-screen flex flex-row">
+      <div className="w-64 pr-2">
+        <ul className="flex flex-col list-none">
+          {blogs.map((blog) => {
             return (
-              <li key={slug}>
-                <BlogLink slug={slug.toString()} />
+              <li key={blog.slug} className="py-2">
+                <BlogLink slug={blog.slug} />
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="w-full">{props.children}</div>
+      <div className="h-screen border-r-[1px] border-r-[#EAEAEA]" />
+      <div className="w-full pl-4">{props.children}</div>
     </div>
   );
 };
