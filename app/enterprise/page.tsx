@@ -1,4 +1,5 @@
-const PageRoute = () => {
-    return <h1>Enterprise</h1>;
-}
-export default PageRoute;
+const Exterprise = () => {
+    return <h1 className="text-4xl font-bold">Exterprise</h1>;
+  };
+  
+  export default Exterprise;
